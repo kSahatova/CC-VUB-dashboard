@@ -12,14 +12,14 @@ import mqttService from './mqttService.js';
 
 const client = mqttService.getClient();
 const subject = mqttService.onConnect(client);
-const topic = 'user_11d0ccff/test/+';
+const topic = 'user_11d0ccff/#';
 
 client.subscribe(topic);
 mqttService.onMessage(client, subject);
 mqttService.onError(client);
 
 function App(){
-  const [sensor, setSensor] = React.useState("sensor 1");
+  const [sensor, setSensor] = React.useState("sensor1");
 
   const handleSelectChangeCallback = useCallback((selectEvent) =>{
     console.log('callback test:', selectEvent)

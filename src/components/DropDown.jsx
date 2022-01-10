@@ -5,7 +5,7 @@ import styles from './components.css';
 class DropDown extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {select_value: 'sensor 1'};
+        this.state = {select_value: 'sensor1'};
 
         this.handleChange = this.handleChange.bind(this);
     }
@@ -23,9 +23,9 @@ class DropDown extends React.Component {
     render() {
         return (
         <select className='select' value={this.state.select_value} onChange={this.handleChange} style={styles.select}>
-                <option value="sensor 1" >sensor 1</option>
-                <option value="sensor 2" >sensor 2</option>
-                <option value="sensor 3" >sensor 3</option>                
+                <option value="sensor1" >sensor 1</option>
+                <option value="sensor2" >sensor 2</option>
+                <option value="sensor3" >sensor 3</option>                
         </select>
             
         );

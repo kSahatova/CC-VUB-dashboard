@@ -6,7 +6,7 @@ import styles from './components.css'
 const ProgressBar = props => {
     return(
     <div>
-        <Progress  type='dashboard' showInfo={true} percent={props.percent} width={180} status="exception"
+        <Progress  type='dashboard' showInfo={true} percent={props.percent} width={180} status="normal"
                 strokeLinecap='round' strokeColor={{'0%': '#ff446c', '100%': '#108ee9',}}
                 style={{
                     position: 'relative',
@@ -21,6 +21,7 @@ function FullnessBlock(props){
     const [fulness, setFulness] = React.useState(0);
 
     React.useEffect(()=>{
+        console.log(props.sensor);
         const filteredStream = props.observable.pipe(
         filter( msg => msg.includes(props.sensor) && msg.includes('fill_level') ?  msg : 0),
         map((msg) => {

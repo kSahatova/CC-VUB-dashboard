@@ -4,7 +4,7 @@ import {Subject} from 'rxjs';
 
 const host = 'wss://srv2.clusterfly.ru:9994/mqtt' 
 const clientId = 'mqttjs_' + Math.random().toString(16).substring(2, 8)
-const topic = 'user_11d0ccff/+';
+//const topic = 'user_11d0ccff/#/temp';
 const options = {
     clientId: clientId,
     username: 'user_11d0ccff',
@@ -20,7 +20,7 @@ function getClient() {
     return client;
 }
 
-function subscribe(client) { 
+function subscribe(client, topic) { 
     console.log(`Client subscribed to the topic '${topic}'`)   
     client.subscribe(topic);
 }

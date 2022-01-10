@@ -33,18 +33,9 @@ const Events = (props)=>{
     const [countEvents, setCount] = useState(0)
 
     useEffect(()=>{
-        const filteredStream = props.observable.pipe(filter((msg) => msg.includes("danger") ? msg : false),
-        map((msg) => {
-            let value = (msg.split(" ")).pop();
-            if (value === "0") {  //change for !==
-            var result = value;
-            }else{
-            result = null;
-            console.log('there are no events found')
-            }
-            return result
-        }),
-        filter((msg) => msg !== null),
+        const filteredStream = props.observable.pipe(
+        filter((msg) => msg.includes("danger") ? msg : 0),
+        map((msg) => (msg.split(" ")).pop()),
         scan(counter => counter + 1, 0));
         const subscription = filteredStream.subscribe(setCount);
         return () => subscription.unsubscribe();

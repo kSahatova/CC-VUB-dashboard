@@ -9,7 +9,7 @@ import {filter, groupBy, mergeMap,reduce,bufferCount, map, takeUntil} from 'rxjs
 
 
 function generateSyntheticGraphData(){
-    const sensors = of("sensor 1", "sensor 2", "sensor 3")
+    const sensors = of("sensor1", "sensor 2", "sensor 3")
     const  week = of("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
     const value = week.pipe(
         mergeMap(x => interval(500).pipe(map(i => x+","+Math.floor(Math.random() * (100 - 0) + 0)))
