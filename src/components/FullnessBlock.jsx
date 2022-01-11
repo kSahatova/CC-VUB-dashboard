@@ -18,15 +18,15 @@ const ProgressBar = props => {
 
 function FullnessBlock(props){
 
-    const [fulness, setFulness] = React.useState(0);
+    const [fullness, setFulness] = React.useState(0);
 
     React.useEffect(()=>{
         console.log(props.sensor);
         const filteredStream = props.observable.pipe(
         filter( msg => msg.includes(props.sensor) && msg.includes('fill_level') ?  msg : 0),
         map((msg) => {
-            let    fulness = (msg.split('/')[2]).split(" ")[1];
-            return fulness
+            let    fullness = (msg.split('/')[2]).split(" ")[1];
+            return fullness
         }),
         );
 
@@ -40,7 +40,7 @@ function FullnessBlock(props){
             <p style={{fontSize:"17px", margin: "10px 0px 0px 15px"}}>{props.title}</p>
             <hr style={{margin: "0px 20px 0px 10px"}}/>
             <div style={{width: "90%", height: "80%", display: 'flex', justifyContent: "center", marginLeft: "15px", marginTop: "10px"}}>
-                <ProgressBar visibility='auto' percent={fulness}/>
+                <ProgressBar visibility='auto' percent={fullness}/>
             </div>
         </div>
     )
