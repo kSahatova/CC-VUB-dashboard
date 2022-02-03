@@ -53,7 +53,7 @@ const ChartBlock = (props)=>{
     }, [props.sensor]);
 
     return (
-        <div className='chartBlock' style={styles.chartBlock}>
+        <div className='chart' style={styles.chart}>
             <p style={{fontSize:"17px", margin: "10px 0px 0px 15px"}}>{props.title}</p>
             <hr style={{margin: "0px 20px 0px 10px"}}/>
             <Line
